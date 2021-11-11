@@ -27,7 +27,7 @@ index_qx = Int64.(round.(rand(20).*(size(qx).-1))).+1;
 #end
 
 # repeat the reference test for arbitrary but not random indices
-#@testset "arbitrary-indices" begin
-#    @test_reference "ref-tests/H.test" H[[1,2,3,5,8,13,21,34,55,89,11,22,33,44,66,77,88,99,111,122]]
-#    @test_reference "ref-tests/qx.test" qx[[1,2,3,5,8,13,21,34,55,89,11,22,33,44,66,77,88,99,111,122]]
-#end
+@testset "arbitrary-indices" begin
+    @test_reference "ref-tests/H.test" H[[1,2,3,5,8,13,21,34,55,89,11,22,33,44,66,77,88,99,111,122]]
+    @test_reference "ref-tests/qx.test" qx[[1,2,3,5,8,13,21,34,55,89,11,22,33,44,66,77,88,99,111,122]]
+end
