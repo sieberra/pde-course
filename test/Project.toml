@@ -1,9 +1,0 @@
-name = "L6TestingExercise"
-uuid = "b34c81bd-11b7-490a-841c-e01abbc990da"
-authors = ["sieberra <raphaelsieber@icloud.com>"]
-version = "0.1.0"
-
-[deps]
-Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-ReferenceTests = "324d217c-45ce-50fc-942e-d289b448e8cf"
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
