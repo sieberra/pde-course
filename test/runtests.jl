@@ -1,6 +1,7 @@
-import Pkg
-Pkg.add("Test")
-using Test, ReferenceTests, Random
+#import Pkg
+#Pkg.add("Test")
+#using Test
+using ReferenceTests, Random
 
 @test 1 == 1
 
