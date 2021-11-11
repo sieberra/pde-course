@@ -1,6 +1,6 @@
 # course-101-0250-00-sieber
 
-[![CI action](https://github.com/sieberra/course-101-0250-00-sieber/actions/workflows/CI.yml/badge.svg)](https://github.com/sieberra/course-101-0250-00-sieber/actions/workflows/CI.yml)
+[![CI action](https://github.com/sieberra/course-101-0250-00-sieber/actions/workflows/test.yml/badge.svg)](https://github.com/sieberra/course-101-0250-00-sieber/actions/workflows/test.yml)
 
 **Repository for PDE course**
 
