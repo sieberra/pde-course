@@ -1,3 +1,5 @@
+import Pkg
+Pkg.add("Test")
 using Test, ReferenceTests, Random
 
 @test 1 == 1
