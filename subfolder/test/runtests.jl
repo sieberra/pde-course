@@ -21,10 +21,10 @@ Random.seed!(12);
 index_qx = Int64.(round.(rand(20).*(size(qx).-1))).+1;
 
 # I find the test arranged in testsets to be more pleasing to look at in the output.
-#@testset "random-indices-H-qx" begin
-#    @test_reference "ref-tests/H2.test" H[index_H]       # save the values found for the indices in a test file
-#    @test_reference "ref-tests/qx2.test" qx[index_qx]
-#end
+@testset "random-indices-H-qx" begin
+    @test_reference "ref-tests/H2.test" H[index_H]       # save the values found for the indices in a test file
+    @test_reference "ref-tests/qx2.test" qx[index_qx]
+end
 
 # repeat the reference test for arbitrary but not random indices
 @testset "arbitrary-indices" begin
