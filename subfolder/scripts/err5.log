@@ -1,0 +1,202 @@
+ERROR: LoadError: InvalidIRError: compiling kernel update_qx!(CuDeviceMatrix{Float64, 1}, Float64, CuDeviceMatrix{Float64, 1}, Float64, Int64, Int64) resulted in invalid LLVM IR
+Reason: unsupported dynamic function invocation (call to print_to_string(xs...) in Base at strings/io.jl:124)
+Stacktrace:
+ [1] string
+   @ ./strings/io.jl:174
+ [2] throw_checksize_error
+   @ ./multidimensional.jl:881
+ [3] _unsafe_getindex
+   @ ./multidimensional.jl:845
+ [4] _getindex
+   @ ./multidimensional.jl:832
+ [5] getindex
+   @ ./abstractarray.jl:1170
+ [6] update_qx!
+   @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Reason: unsupported call through a literal pointer (call to )
+Stacktrace:
+ [1] Array
+   @ ./boot.jl:450
+ [2] Array
+   @ ./boot.jl:458
+ [3] similar
+   @ ./abstractarray.jl:750
+ [4] similar
+   @ ./abstractarray.jl:740
+ [5] _unsafe_getindex
+   @ ./multidimensional.jl:844
+ [6] _getindex
+   @ ./multidimensional.jl:832
+ [7] getindex
+   @ ./abstractarray.jl:1170
+ [8] update_qx!
+   @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Reason: unsupported dynamic function invocation (call to print_to_string(xs...) in Base at strings/io.jl:124)
+Stacktrace:
+ [1] string
+   @ ./strings/io.jl:174
+ [2] throwdm
+   @ ./broadcast.jl:1060
+ [3] copyto!
+   @ ./broadcast.jl:972
+ [4] copyto!
+   @ ./broadcast.jl:936
+ [5] materialize!
+   @ ./broadcast.jl:894
+ [6] materialize!
+   @ ./broadcast.jl:891
+ [7] update_qx!
+   @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Reason: unsupported call to the Julia runtime (call to jl_object_id_)
+Stacktrace:
+  [1] objectid
+    @ ./reflection.jl:291
+  [2] dataids
+    @ ./abstractarray.jl:1407
+  [3] mightalias
+    @ ./abstractarray.jl:1384
+  [4] unalias
+    @ ./abstractarray.jl:1349
+  [5] copyto!
+    @ ./abstractarray.jl:949
+  [6] copyto!
+    @ ./broadcast.jl:977
+  [7] copyto!
+    @ ./broadcast.jl:936
+  [8] materialize!
+    @ ./broadcast.jl:894
+  [9] materialize!
+    @ ./broadcast.jl:891
+ [10] update_qx!
+    @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Reason: unsupported call through a literal pointer (call to )
+Stacktrace:
+ [1] copy
+   @ ./array.jl:349
+ [2] unaliascopy
+   @ ./abstractarray.jl:1365
+ [3] unalias
+   @ ./abstractarray.jl:1349
+ [4] copyto!
+   @ ./abstractarray.jl:949
+ [5] copyto!
+   @ ./broadcast.jl:977
+ [6] copyto!
+   @ ./broadcast.jl:936
+ [7] materialize!
+   @ ./broadcast.jl:894
+ [8] materialize!
+   @ ./broadcast.jl:891
+ [9] update_qx!
+   @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Reason: unsupported call to the Julia runtime (call to jl_object_id_)
+Stacktrace:
+  [1] objectid
+    @ ./reflection.jl:291
+  [2] dataids
+    @ ./abstractarray.jl:1407
+  [3] mightalias
+    @ ./abstractarray.jl:1384
+  [4] unalias
+    @ ./abstractarray.jl:1349
+  [5] broadcast_unalias
+    @ ./broadcast.jl:957
+  [6] preprocess
+    @ ./broadcast.jl:964
+  [7] preprocess_args
+    @ ./broadcast.jl:967
+  [8] preprocess
+    @ ./broadcast.jl:963
+  [9] copyto!
+    @ ./broadcast.jl:980
+ [10] copyto!
+    @ ./broadcast.jl:936
+ [11] materialize!
+    @ ./broadcast.jl:894
+ [12] materialize!
+    @ ./broadcast.jl:891
+ [13] update_qx!
+    @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Reason: unsupported call through a literal pointer (call to )
+Stacktrace:
+  [1] copy
+    @ ./array.jl:349
+  [2] unaliascopy
+    @ ./abstractarray.jl:1365
+  [3] unalias
+    @ ./abstractarray.jl:1349
+  [4] broadcast_unalias
+    @ ./broadcast.jl:957
+  [5] preprocess
+    @ ./broadcast.jl:964
+  [6] preprocess_args
+    @ ./broadcast.jl:967
+  [7] preprocess
+    @ ./broadcast.jl:963
+  [8] copyto!
+    @ ./broadcast.jl:980
+  [9] copyto!
+    @ ./broadcast.jl:936
+ [10] materialize!
+    @ ./broadcast.jl:894
+ [11] materialize!
+    @ ./broadcast.jl:891
+ [12] update_qx!
+    @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:58
+Stacktrace:
+  [1] check_ir(job::GPUCompiler.CompilerJob{GPUCompiler.PTXCompilerTarget, CUDA.CUDACompilerParams, GPUCompiler.FunctionSpec{typeof(update_qx!), Tuple{CuDeviceMatrix{Float64, 1}, Float64, CuDeviceMatrix{Float64, 1}, Float64, Int64, Int64}}}, args::LLVM.Module)
+    @ GPUCompiler ~/.julia/packages/GPUCompiler/AJD5L/src/validation.jl:111
+  [2] macro expansion
+    @ ~/.julia/packages/GPUCompiler/AJD5L/src/driver.jl:333 [inlined]
+  [3] macro expansion
+    @ ~/.julia/packages/TimerOutputs/SSeq1/src/TimerOutput.jl:252 [inlined]
+  [4] macro expansion
+    @ ~/.julia/packages/GPUCompiler/AJD5L/src/driver.jl:331 [inlined]
+  [5] emit_asm(job::GPUCompiler.CompilerJob, ir::LLVM.Module; strip::Bool, validate::Bool, format::LLVM.API.LLVMCodeGenFileType)
+    @ GPUCompiler ~/.julia/packages/GPUCompiler/AJD5L/src/utils.jl:62
+  [6] cufunction_compile(job::GPUCompiler.CompilerJob)
+    @ CUDA ~/.julia/packages/CUDA/YpW0k/src/compiler/execution.jl:326
+  [7] cached_compilation(cache::Dict{UInt64, Any}, job::GPUCompiler.CompilerJob, compiler::typeof(CUDA.cufunction_compile), linker::typeof(CUDA.cufunction_link))
+    @ GPUCompiler ~/.julia/packages/GPUCompiler/AJD5L/src/cache.jl:89
+  [8] cufunction(f::typeof(update_qx!), tt::Type{Tuple{CuDeviceMatrix{Float64, 1}, Float64, CuDeviceMatrix{Float64, 1}, Float64, Int64, Int64}}; name::Nothing, kwargs::Base.Iterators.Pairs{Union{}, Union{}, Tuple{}, NamedTuple{(), Tuple{}}})
+    @ CUDA ~/.julia/packages/CUDA/YpW0k/src/compiler/execution.jl:297
+  [9] cufunction
+    @ ~/.julia/packages/CUDA/YpW0k/src/compiler/execution.jl:291 [inlined]
+ [10] macro expansion
+    @ ~/.julia/packages/CUDA/YpW0k/src/compiler/execution.jl:102 [inlined]
+ [11] diffusion_2D_mpi(; do_save::Bool)
+    @ Main /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:126
+ [12] top-level scope
+    @ /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:146
+in expression starting at /scratch/amandt/pde-repo/lecture8/diffusion_2D_mpi_gpu.jl:146
+[91m[1mERROR: [22m[39mfailed process: Process(`[4m/home/amandt/.julia/artifacts/d3fd8d0103f34e0e64b918f571d874288181b4de/bin/mpiexec[24m [4m-n[24m [4m1[24m [4mjulia[24m [4mdiffusion_2D_mpi_gpu.jl[24m`, ProcessExited(1)) [1]
+
+Stacktrace:
+  [1] [0m[1mpipeline_error[22m
+[90m    @ [39m[90m./[39m[90;4mprocess.jl:525[0m[90m [inlined][39m
+  [2] [0m[1mrun[22m[0m[1m([22m::[0mCmd; [90mwait[39m::[0mBool[0m[1m)[22m
+[90m    @ [39m[90mBase[39m [90m./[39m[90;4mprocess.jl:440[0m
+  [3] [0m[1mrun[22m[0m[1m([22m::[0mCmd[0m[1m)[22m
+[90m    @ [39m[90mBase[39m [90;4mprocess.jl:438[0m
+  [4] [0m[1m(::var"#1#2")[22m[0m[1m([22m[90mexe[39m::[0mCmd[0m[1m)[22m
+[90m    @ [39m[35mMain[39m [90;4mnone:4[0m
+  [5] [0m[1m(::MPI.var"#8#9"{var"#1#2"})[22m[0m[1m([22m[90mcmd[39m::[0mString[0m[1m)[22m
+[90m    @ [39m[36mMPI[39m [90m~/.julia/packages/MPI/biSVL/src/[39m[90;4menvironment.jl:25[0m
+  [6] [0m[1m(::JLLWrappers.var"#2#3"{MPI.var"#8#9"{var"#1#2"}, String})[22m[0m[1m([22m[0m[1m)[22m
+[90m    @ [39m[32mJLLWrappers[39m [90m~/.julia/packages/JLLWrappers/bkwIo/src/[39m[90;4mruntime.jl:49[0m
+  [7] [0m[1mwithenv[22m[0m[1m([22m::[0mJLLWrappers.var"#2#3"[90m{MPI.var"#8#9"{var"#1#2"}, String}[39m, ::[0mPair[90m{String, String}[39m, ::[0mVararg[90m{Pair{String, String}, N} where N[39m[0m[1m)[22m
+[90m    @ [39m[90mBase[39m [90;4menv.jl:161[0m
+  [8] [0m[1mwithenv_executable_wrapper[22m[0m[1m([22m[90mf[39m::[0mFunction, [90mexecutable_path[39m::[0mString, [90mPATH[39m::[0mString, [90mLIBPATH[39m::[0mString, [90madjust_PATH[39m::[0mBool, [90madjust_LIBPATH[39m::[0mBool[0m[1m)[22m
+[90m    @ [39m[32mJLLWrappers[39m [90m~/.julia/packages/JLLWrappers/bkwIo/src/[39m[90;4mruntime.jl:48[0m
+  [9] [0m[1minvokelatest[22m[0m[1m([22m::[0mAny, ::[0mAny, ::[0mVararg[90m{Any, N} where N[39m; [90mkwargs[39m::[0mBase.Iterators.Pairs[90m{Union{}, Union{}, Tuple{}, NamedTuple{(), Tuple{}}}[39m[0m[1m)[22m
+[90m    @ [39m[90mBase[39m [90m./[39m[90;4messentials.jl:708[0m
+ [10] [0m[1minvokelatest[22m[0m[1m([22m::[0mAny, ::[0mAny, ::[0mVararg[90m{Any, N} where N[39m[0m[1m)[22m
+[90m    @ [39m[90mBase[39m [90m./[39m[90;4messentials.jl:706[0m
+ [11] [0m[1mmpiexec[22m[0m[1m([22m[90mf[39m::[0mFunction; [90madjust_PATH[39m::[0mBool, [90madjust_LIBPATH[39m::[0mBool[0m[1m)[22m
+[90m    @ [39m[33mMPICH_jll[39m [90m~/.julia/packages/JLLWrappers/bkwIo/src/products/[39m[90;4mexecutable_generators.jl:7[0m
+ [12] [0m[1mmpiexec[22m[0m[1m([22m[90mf[39m::[0mFunction[0m[1m)[22m
+[90m    @ [39m[33mMPICH_jll[39m [90m~/.julia/packages/JLLWrappers/bkwIo/src/products/[39m[90;4mexecutable_generators.jl:7[0m
+ [13] [0m[1mmpiexec[22m[0m[1m([22m[90mfn[39m::[0mvar"#1#2"[0m[1m)[22m
+[90m    @ [39m[36mMPI[39m [90m~/.julia/packages/MPI/biSVL/src/[39m[90;4menvironment.jl:25[0m
+ [14] top-level scope
+[90m    @ [39m[90;4mnone:4[0m
